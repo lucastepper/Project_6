@@ -1,9 +1,6 @@
 import numpy as np
 
 
-x1 = np.array([[1,1],[0,0],[3,3],[1,0]])
-
-
 def potential_harmonic(x, k):
     """ Computes potential of n particles in harmonic potenital
         arround the origin
