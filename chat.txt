@@ -1,3 +1,6 @@
 I implemented my own potential and gradient function as test, to see
-if both return the same results. Its somewhat messy. Probably a big waste of time.
-Yaoyi you have to structure your gradient function such that it takes one np.ndarray(n,d) with the positions for it to work with the langevin integrator.
+if both return the same results. Its somewhat messy.
+Probably a big waste of time.
+Yaoyi you have to structure your gradient function such that it takes
+one np.ndarray(n,d) with the positions for it to work with the
+langevin integrator.
