@@ -24,3 +24,12 @@ Hey yesterday Yaoyi said i should add, a Metropolis MC for the same problem.
 I did this, maybe we can use it for testing. 
 Im going to write the gradient decent.
 Greetings
+
+--------------------------------------------------
+Shipra:
+
+I tried implementing and plotting LJ with velocity verlet. Not sure 
+if implemented correct. It's notebook file. Please run the cells and have look at it.
+May be with little modification we can use it in Yaoyi's LJ function.
+
+--------------------------------------------------
