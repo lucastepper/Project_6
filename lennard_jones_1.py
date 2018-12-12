@@ -26,7 +26,7 @@ def gradient_harmonic(x, k):
         Returns:
             phi (np.ndarray(n)): gradient harmonic potential """
 
-    return -2 * x
+    return -2 * k * x
 
 
 def potential_lennard_jones(x):
@@ -61,7 +61,7 @@ def gradient_lennard_jones(x):
 
     n_particles = x.shape[0]
     gradient_list = []
-    for i in range(1):
+    for i in range(n_particles):
         gradient0_list = []
         for j in range(n_particles):
             distance = np.linalg.norm(x[i,:] - x[j,:])
@@ -80,4 +80,4 @@ def potential(x, k):
 
 
 def gradient(x, k):
-    return gradient_harmonic(x, k) + potential_lennard_jones(x)
+    return -gradient_harmonic(x, k) - gradient_lennard_jones(x)
