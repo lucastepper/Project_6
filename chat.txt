@@ -18,3 +18,9 @@ you need a minus sign.
 Also, for "lennard_jones_1", the function "gradient_harmonic" missed the k,
 "gradient_lennard_jones" has an outer loop that loops only once. And 
 "gradient(x, k)" has a typo.
+--------------------------------------------------
+Louis
+Hey yesterday Yaoyi said i should add, a Metropolis MC for the same problem.
+I did this, maybe we can use it for testing. 
+Im going to write the gradient decent.
+Greetings
