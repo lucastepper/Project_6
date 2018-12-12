@@ -1,5 +1,5 @@
 import numpy as np
-from .LJ import LJ_force, LJ_potential
+from LJ import LJ_force, LJ_potential
 
 # temporarily define all constants here
 k_harmonic = 1

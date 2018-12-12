@@ -1,6 +1,6 @@
 import numpy as np
 
-# temporarily define all the constants here
+# temporarily define all constants here
 epsilon_lj = 1.
 sigma_lj = 1.
 cutoff_lj = 3. * sigma_lj
