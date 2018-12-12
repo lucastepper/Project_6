@@ -33,25 +33,26 @@ def _LJ_potential_pair(qi, qj):
         return 0.
     return 4 * epsilon_lj * (sigma_lj ** 12 / rij ** 12 - sigma_lj ** 6 / rij ** 6)
 
-def LJ_force(q, k):
-    """Calculate the system Lennard-Jones force on particle *i* based on given particle coordinates.
+def LJ_force(q):
+    """Calculate the system Lennard-Jones forces based on given particle coordinates.
     
     Input:
         q (iterable of (#dimension,)-arrays): list or array of particle coordinates.
         k (int): index of the particle for force calc.
     
     Output:
-        force ((#dimension,)-array): system Lennard-Jones force on particle *i*.    
+        force ((n, #dimension)-array): system Lennard-Jones forces on particle *0~(n-1)*.    
     """
     
     # TODO: input check
     
     n_particle = np.shape(q)[0]
     ndim = np.shape(q)[1]
-    force = np.zeros(ndim)
-    for j in range(n_particle):
-        # pairwise force calc will return 0 for identical two particles.
-        force += _LJ_force_pair(q[k], q[j])
+    force = np.zeros((n_particle, ndim))
+    for i in range(n_particle):
+        for j in range(n_particle):
+            # pairwise force calc will return 0 for identical two particles.
+            force[i] += _LJ_force_pair(q[i], q[j])
     return force
 
 def _LJ_force_pair(qk, qj):
@@ -62,4 +63,5 @@ def _LJ_force_pair(qk, qj):
     ndim = np.shape(qk)[0]
     if rjk <= 0 or rjk > cutoff_lj:
         return np.zeros(ndim)
-    return 4 * epsilon_lj * (12 * sigma_lj ** 12 / rjk ** 14 - 6 * sigma_lj ** 6 / rjk ** 8) * (qj - qk)
+    # return 4 * epsilon_lj * (12 * sigma_lj ** 12 / rjk ** 14 - 6 * sigma_lj ** 6 / rjk ** 8) * (qj - qk)
+    return 4 * epsilon_lj * (12 * sigma_lj ** 12 / rjk ** 14 - 6 * sigma_lj ** 6 / rjk ** 8) * (qk - qj)

@@ -4,3 +4,17 @@ Probably a big waste of time.
 Yaoyi you have to structure your gradient function such that it takes
 one np.ndarray(n,d) with the positions for it to work with the
 langevin integrator.
+
+--------------------------------------------------
+Yaoyi (12/12, 0:40):
+OK, I changed the corresponding function in my LJ.py file. Also generated
+another file pot_force.py to include all the potentials and forces.
+
+Now the dynamics can work... See the Jupyter notebook "dynamics_yaoyi", 
+which is generally a copy of your stuff.
+
+As for the Langevin, they requires forces instead of potentials, so maybe
+you need a minus sign.
+Also, for "lennard_jones_1", the function "gradient_harmonic" missed the k,
+"gradient_lennard_jones" has an outer loop that loops only once. And 
+"gradient(x, k)" has a typo.
